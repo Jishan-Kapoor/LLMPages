@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanderson Stories</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px;}
+        h1 { color: #333; }
+        a { display: block; margin-bottom: 10px; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlightjs@11.7.0/lib/index.min.js"></script>
+</head>
+<body>
+    <h1>Welcome to My GitHub Pages</h1>
+    <p>Explore the various creative files I've uploaded:</p>
+    <a href="ashravan.txt" target="_blank">Read a short story about Ashravan</a>
+    <a href="dilemma.json" target="_blank">See the dilemma faced by an autonomous vehicle</a>
+    <a href="about.md" target="_blank">Learn about me in three words</a>
+    <a href="pelican.svg" target="_blank">View an SVG of a pelican on a bicycle</a>
+    <a href="restaurant.json" target="_blank">Recommended restaurant in Bangalore</a>
+    <a href="prediction.json" target="_blank">Fed Funds rate prediction for December 2025</a>
+    <a href="LICENSE" target="_blank">Read the MIT License</a>
+    <a href="uid.txt" target="_blank">View UID</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('about.md')
+                .then(response => response.text())
+                .then(text => {
+                    const aboutHtml = marked(text);
+                    document.body.insertAdjacentHTML('beforeend', '<div>' + aboutHtml + '</div>');
+                });
+
+            fetch('dilemma.json')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Autonomous Vehicle Dilemma:', data);
+                });
+
+            fetch('restaurant.json')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Restaurant Recommendation:', data);
+                });
+
+            fetch('prediction.json')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Fed Funds Prediction:', data);
+                });
+        });
+    </script>
+</body>
+</html>
